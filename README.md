@@ -7,4 +7,4 @@ Ce Tchat est inspiré du tutoriel "Créer un tchat en Ajax/PHP" de Grafikart (ht
 
 Installation
 ==========
-Pour installer le tchat, il vous suffit de paramètrer le fichier connect.php
+Pour installer le QuickTchat, il vous suffit de déplacer le dossier dans votre répertoire www de votre serveur web et de lancer l'application.
