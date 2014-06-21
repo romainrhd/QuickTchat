@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION["pseudo"]) || empty($_SESSION["pseudo"])) {
     header("location:index.php");
 }
-include 'connect.php';
+include 'includes/connect.php';
 ?>
 <!DOCTYPE>
 <html>
@@ -26,8 +26,8 @@ include 'connect.php';
         <nav>
             <h1>QuickTchat</h1>
         </nav>
-        <p>Vous êtes connecté en tant que <?php echo $_SESSION["pseudo"]; ?></p>
         <div id="conteneur" style="width:94%; margin-bottom:200px;">
+            <p><i>Vous êtes connecté en tant que <?php echo $_SESSION["pseudo"]; ?>. (<a href="deconnect.php">Déconnexion</a>)</i></p>
             <div id="tchat">
                 <?php
                     $sql = "SELECT * FROM messages ORDER BY date DESC LIMIT 15";

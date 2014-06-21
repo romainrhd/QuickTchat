@@ -1,17 +1,18 @@
 @font-face {
     font-family: "PolicePerso";
-    src: url('../font/perso.ttf');
+    src: url('../font/perso.otf');
 }
 
 html{
-    background:#FDF1B8;
+    background:#F6F6F6;
     font-family: sans-serif;
 }
 
 nav{
+    font-family: "PolicePerso", sans-serif;
     position: fixed;
     width: 100%;
-    background: #000000;
+    background: #E46C51;
     color: #FFFFFF;
     top: 0;
     left:0;
@@ -22,7 +23,7 @@ nav h1{
 }
 
 #conteneur{
-    padding-top: 30px;
+    padding-top: 50px;
     margin-left: 10px;
     margin-right: 10px;
 }
