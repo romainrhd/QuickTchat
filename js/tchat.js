@@ -1,8 +1,10 @@
 var url = "tchatAjax.php";
 var lastid = 0;
 var timer = setInterval(getMessages,5000);
+var ctimer = setInterval(getConnected,10000);
 
 $(function(){
+    getConnected();
     $("#tchatForm form").submit(function(){
         clearInterval(timer);
         showLoader("#tchatForm");
@@ -31,7 +33,18 @@ function getMessages(){
             else{
                 alert(data.erreur);
             }
-            hideLoader();
+        },"json");
+        return false;
+}
+
+function getConnected(){
+    $.post(url,{action:"getConnected"},function(data){
+            if (data.erreur == "ok") {
+                $("#connected").empty().append(data.result);
+            }
+            else{
+                alert(data.erreur);
+            }
         },"json");
         return false;
 }

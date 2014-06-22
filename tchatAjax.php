@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("connect.php");
+require("includes/connect.php");
 $d = array();
 
 if (!isset($_SESSION["pseudo"]) || empty($_SESSION["pseudo"]) || !isset($_POST["action"])) {
@@ -39,6 +39,23 @@ else{
         $d["erreur"] = "ok";
     }
 
+    /**
+     * Action : getConnected
+     * Permet l'affichage des derniers connectés
+     */
+    if ($_POST["action"] == "getConnected") {
+        $now = time();
+        $sql = "SELECT pseudo FROM connected WHERE $now-date<60";
+        $req = $connexion->query($sql) or die(print_r($connexion->errorInfo()));
+        $d["result"] = "Connectés : ";
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+            $d["result"] .= $data["pseudo"].", ";
+        }
+        $d["result"] = substr($d["result"],0,-2);
+        $sql = "UPDATE connected SET date = $now WHERE id=".$_SESSION["idTchat"]."";
+        $req = $connexion->query($sql) or die(print_r($connexion->errorInfo()));
+        $d["erreur"] = "ok";
+    }
 }
 echo json_encode($d);
 ?>

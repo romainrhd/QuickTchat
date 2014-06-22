@@ -12,7 +12,7 @@
             <div id="conteneur">
                 <p><i>Bienvenue dans l'installation de QuickTchat.</i></p>
 <?php
-if (!file_exists('../config.php')) {
+if (!file_exists('../includes/config.php')) {
     $step = isset( $_POST['step'] ) ? (int) $_POST['step'] : 0;
     switch ($step) {
         case '0':
@@ -38,7 +38,7 @@ if (!file_exists('../config.php')) {
                     "close" => "?>"
                 );
 
-                $handle = fopen('../config.php', 'w');
+                $handle = fopen('../includes/config.php', 'w');
                 foreach( $content_file as $line ) {
                     fwrite( $handle, $line );
                 }

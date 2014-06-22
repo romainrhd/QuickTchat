@@ -7,3 +7,10 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `date` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+CREATE TABLE IF NOT EXISTS `connected` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pseudo` varchar(60) NOT NULL,
+  `ip` varchar(15) NOT NULL,
+  `date` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;

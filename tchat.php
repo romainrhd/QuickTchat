@@ -28,6 +28,9 @@ include 'includes/connect.php';
         </nav>
         <div id="conteneur" style="width:94%; margin-bottom:200px;">
             <p><i>Vous êtes connecté en tant que <?php echo $_SESSION["pseudo"]; ?>. (<a href="deconnect.php">Déconnexion</a>)</i></p>
+            <div id="connected">
+
+            </div>
             <div id="tchat">
                 <?php
                     $sql = "SELECT * FROM messages ORDER BY date DESC LIMIT 15";
